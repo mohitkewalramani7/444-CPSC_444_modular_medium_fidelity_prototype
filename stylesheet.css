@@ -1,17 +1,16 @@
 body{
-    background-color: #FFF2D3
+    background-color: #FFF2D3;
+    font-family: Arial, Helvetica, sans-serif;
 }
 h1{
     color: #d45900;
     font-size: 45px;
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
 }
 h3{
     color: #d45900;
     font-size: 30px;
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
 }
 p{
     color: #d45900;
@@ -27,13 +26,11 @@ button{
 li{
     width: 100%;
     font-size: 25px;
-    font-family: Arial, Helvetica, sans-serif;
 }
 .login-screen-title{
     color: #d45900;
     font-size: 45px;
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 120px;
 }
 .login-screen-button{
@@ -56,8 +53,8 @@ li{
     margin-left: 20%;
     margin-right: 20%
 }
-.ui-menu { 
-    width: 150px; 
+.ui-menu {
+    width: 150px;
 }
 .sidenav {
     height: 100%; /* Full-height: remove this if you want "auto" height */
@@ -73,4 +70,14 @@ li{
 .app-selection-button{
     width: 100%;
     height: 20%;
+}
+
+.folder {
+  width: calc(100%/3 - 2*2.5% - 2*10px);
+  padding: 10px;
+  margin: 2.5%;
+  background-color: #ffb791;
+  float: left;
+  font-size: 25px;
+  outline: 1px solid black;
 }

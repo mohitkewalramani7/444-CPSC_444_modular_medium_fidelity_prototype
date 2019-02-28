@@ -32,8 +32,31 @@ function returnOpenApps(){
     return str;
 }
 
+function allApps(){
+    let str = "";
+    for (let i = 0; i < apps.length; i++){
+        if (typeof apps[i] === 'object'){
+            let folderName = Object.keys(apps[i])[0];
+            str += "<div class='folder'>" + folderName + "<ul>"
+            for (let j = 0; j < apps[i][folderName].length; j++){
+                str += "<li><div>" + apps[i][folderName][j] + "</div></li>"
+            }
+            str += "</ul></div>"
+        }
+        else{
+            str += "<div class='folder'>" + apps[i] + "</div>"
+        }
+        if(i % 3 == 2) str +="<div style='height:1px;clear:both'></div>"
+    }
+    return str;
+}
+
 function loginButtonClick(){
     window.location.replace("project_list.html");
+}
+
+function navigateToAllApps(){
+    window.location.replace("all_applications.html");
 }
 
 function logOut(){
