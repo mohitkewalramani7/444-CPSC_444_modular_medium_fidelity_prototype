@@ -9,9 +9,6 @@ var apps = [
         "Files":["A2.A", "A2.B"]
     },
     "Webstorm",
-    {
-        "Add App/File": ["App", "File"]
-    }
 ]
 
 function returnOpenApps(){
@@ -21,15 +18,31 @@ function returnOpenApps(){
             let folderName = Object.keys(apps[i])[0];
             str += "<li><div>" + folderName + "  --> </div><ul>"
             for (let j = 0; j < apps[i][folderName].length; j++){
-                str += "<li><div>" + apps[i][folderName][j] + "</div></li>"
+                str += "<li><div><button>" + apps[i][folderName][j] + "</button></div></li>"
             }
             str += "</ul></li>"
         }
         else{
-            str += "<li><div>" + apps[i] + "</div></li>"
+            str += "<li><div><button>" + apps[i] + "</button></div></li>"
         }
     }
     return str;
+}
+
+function returnAddFileOrFolderButton(){
+    return `
+    <li>
+        <div>Add App/File --></div>
+        <ul>
+            <li>
+                <div>App</div>
+            </li>
+            <li>
+                <div>File</div>
+            </li>
+        </ul>
+    </li>
+        `
 }
 
 function allApps(){
