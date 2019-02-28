@@ -1,0 +1,62 @@
+body{
+    background-color: #FFF2D3
+}
+h1{
+    color: #d45900;
+    font-size: 45px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h3{
+    color: #d45900;
+    font-size: 30px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+p{
+    color: #d45900;
+    text-align: center;
+}
+input{
+    font-size: 25px;
+}
+button{
+    text-align: center;
+    font-size: 20px;
+}
+li{
+    background-color: white;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.login-screen-title{
+    color: #d45900;
+    font-size: 45px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 120px;
+}
+.login-screen-button{
+    text-align: center;
+    font-size: 30px;
+    margin-top: 40px;
+}
+.centered-div{
+    text-align: center;
+}
+.main-bar{
+    width: 100%;
+    height: 10%;
+    text-align: right;
+}
+.project-selection-button{
+    width: 250px;
+    height: 250px;
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-right: 20%
+}
+.menu{
+    background-color: #3e8e41;
+}
+.ui-menu { width: 150px; }
