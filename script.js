@@ -11,22 +11,23 @@ var apps = [
     "Webstorm",
 ]
 
-var apps_new = [
-  {
+var apps_new = {
+  "Chats": {
     "type": "folder",
-    "name": "Chats",
-    "child": [
-      {
-        "type": "app",
-        "name": "Slack",
+    "children": {
+      "Slack": {
+        "type": "app"
+      },
+      "Messenger": {
+        "type": "app"
       }
-    ]
+    }
   },
-  {
-    "type": "app",
-    "name": "Readme"
-  }
-]
+  "Readme": {
+    "type": "app"
+  },
+}
+
 
 function returnOpenApps(){
     let str = "";
