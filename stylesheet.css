@@ -16,7 +16,7 @@ p{
     color: #d45900;
     text-align: center;
 }
-input[type="text"]{
+input[type="text"], input[type="password"]{
     font-size: 25px;
 }
 button{
