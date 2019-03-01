@@ -1,7 +1,7 @@
 $(document).ready(function () {
-    $("#menu").append(returnOpenApps());
+    $("#menu").append(returnOpenApps(apps));
     $("#menu").append(returnAddFileOrFolderButton());
-    $("#allApps").append(allApps());
+    $("#allApps").append(allApps(apps));
     $("#menu").menu();
 
     $("ul button").click(function(){

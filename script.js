@@ -1,17 +1,5 @@
 
-var apps = [
-    {
-        "Chats": ['Slack', 'Messenger']
-    },
-    "Readme",
-    "Photoshop",
-    {
-        "Files":["A2.A", "A2.B"]
-    },
-    "Webstorm",
-]
-
-var apps_new = {
+var apps = {
   "Chats": {
     "type": "folder",
     "children": {
@@ -26,22 +14,33 @@ var apps_new = {
   "Readme": {
     "type": "app"
   },
+  "Photoshop":{
+      "type": "app"
+  },
+  "Files":{
+      "type": "folder",
+      "children":{
+        "A2.A":{
+            "type": "app"
+        },
+        "A2.B":{
+            "type": "app"
+        }   
+      }
+  },
+  "Webstorm":{
+      "type": "app"
+  }
 }
 
-
-function returnOpenApps(){
+function returnOpenApps(apps_object){
     let str = "";
-    for (let i = 0; i < apps.length; i++){
-        if (typeof apps[i] === 'object'){
-            let folderName = Object.keys(apps[i])[0];
-            str += "<li><div>" + folderName + "  --> </div><ul>"
-            for (let j = 0; j < apps[i][folderName].length; j++){
-                str += "<li><div><button>" + apps[i][folderName][j] + "</button></div></li>"
-            }
-            str += "</ul></li>"
+    for (let key in apps_object){
+        if (apps_object[key]["type"] === "folder"){
+            str += "<li><div>" + key + "</div><ul>" + returnOpenApps(apps_object[key]["children"]) + "</ul></li>"
         }
         else{
-            str += "<li><div><button>" + apps[i] + "</button></div></li>"
+            str += "<li><div><button>" + key + "</button></div></li>";
         }
     }
     return str;
@@ -63,21 +62,22 @@ function returnAddFileOrFolderButton(){
         `
 }
 
-function allApps(){
+function allApps(apps_object){
     let str = "";
-    for (let i = 0; i < apps.length; i++){
-        if (typeof apps[i] === 'object'){
-            let folderName = Object.keys(apps[i])[0];
-            str += "<div class='folder'>" + folderName + "<ul>"
-            for (let j = 0; j < apps[i][folderName].length; j++){
-                str += "<li><div>" + apps[i][folderName][j] + "</div></li>"
-            }
-            str += "</ul></div>"
+    let counter = 0;
+    for (let key in apps_object){
+        if (apps_object[key]["type"] === "folder"){
+            str += "<div class='folder'>" + key + "<ul>" + 
+                "<li><div>" + allApps(apps_object[key]["children"]) +
+                "</div></li>" +
+                "</ul></div>"
         }
         else{
-            str += "<div class='folder'>" + apps[i] + "</div>"
+            str += "<div class='folder'>" + key + "</div>"
         }
-        if(i % 3 == 2) str +="<div style='height:1px;clear:both'></div>"
+
+        if(counter % 3 == 2) str +="<div style='height:1px;clear:both'></div>"
+        counter ++;
     }
     return str;
 }
