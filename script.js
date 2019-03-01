@@ -25,7 +25,7 @@ var apps = {
         },
         "A2.B":{
             "type": "app"
-        }   
+        }
       }
   },
   "Webstorm":{
@@ -62,24 +62,29 @@ function returnAddFileOrFolderButton(){
         `
 }
 
-function allApps(apps_object){
+function allApps(apps_object, main_level){
     let str = "";
     let counter = 0;
     for (let key in apps_object){
         if (apps_object[key]["type"] === "folder"){
-            str += "<div class='folder'>" + key + "<ul>" + 
-                "<li><div>" + allApps(apps_object[key]["children"]) +
-                "</div></li>" +
-                "</ul></div>"
+            str += "<div class='folder'>" + key + "<button type='button' style='float:right' onClick='move(\""+key+"\")'>move</button>" +
+                "<hr><div>" + allApps(apps_object[key]["children"], false) +
+                "</div></div>"
         }
         else{
-            str += "<div class='folder'>" + key + "</div>"
+            let c = "app";
+            if(main_level) c = "folder";
+            str += "<div class='"+c+"'>" + key
+            str += "<button type='button' style='float:right' onClick='move(\""+key+"\")'>move</button></div>"
         }
-
         if(counter % 3 == 2) str +="<div style='height:1px;clear:both'></div>"
         counter ++;
     }
     return str;
+}
+
+function move(item){
+  console.log(item)
 }
 
 function loginButtonClick(){

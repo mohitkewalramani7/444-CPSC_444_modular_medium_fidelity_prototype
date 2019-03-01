@@ -83,6 +83,11 @@ li{
     font-size: 25px;
     outline: 1px solid black;
 }
+.app {
+  margin-left: 10%;
+  display: list-item;
+  /*list-style-position: inside;*/
+}
 .popup {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */

@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $("#menu").append(returnOpenApps(apps));
     $("#menu").append(returnAddFileOrFolderButton());
-    $("#allApps").append(allApps(apps));
+    $("#allApps").append(allApps(apps, true));
     $("#menu").menu();
 
     $("ul button").click(function(){
@@ -11,7 +11,7 @@ $(document).ready(function () {
                 $(".gridMain div").append(
                     `
                     <br><br><br>
-                    <p>Jack: Hey there! Can you add the app 
+                    <p>Jack: Hey there! Can you add the app
                             Webstorm to our workspace</p>
                     `
                 );
@@ -20,7 +20,7 @@ $(document).ready(function () {
                 $(".gridMain div").append(
                     `
                     <br><br><br>
-                    <p>Sally: Hey there! Can you add the file 
+                    <p>Sally: Hey there! Can you add the file
                             a2.txt to our workspace</p>
                     `
                 );
@@ -68,5 +68,5 @@ $(document).ready(function () {
                 );
                 break;
         }
-    });    
+    });
 });
