@@ -79,3 +79,13 @@ function logOut(){
 function navigateToProjectPage(){
     window.location.replace("project_main.html")
 }
+
+function openPopup(id){
+  var popup = document.getElementById(id);
+  popup.style.display = "block";
+}
+
+function closePopup(id){
+  var popup = document.getElementById(id);
+  popup.style.display = "none";
+}
