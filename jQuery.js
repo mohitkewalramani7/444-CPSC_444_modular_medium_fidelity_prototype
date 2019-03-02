@@ -7,12 +7,22 @@ $(document).ready(function () {
     $("ul button").click(function(){
         $(".gridMain div").html($(this).text());
         switch($(this).text().trim()){
+            case "mHall.cpp":
+                $(".gridMain div").append(
+                    "<br><br><button onClick='saveData()'>Save</button>" +
+                    "<br><textarea id='codeToCommentBox' rows='60'>" +
+                    localStorage.getItem('inProgressCode') +
+                    "</textarea>"
+                );
+                break;
             case "Slack":
                 $(".gridMain div").append(
                     `
-                    <br><br><br>
-                    <p>Jack: Hey there! Can you add the app
-                            Webstorm to our workspace</p>
+                    <br><br>
+                    <p>John: Hey there! Can you add the file called 
+                        'demo.docx' to your workspace and keep it open.
+                        It'll come in handy.
+                        Ensure to add it to the Submission folder </p>
                     `
                 );
                 break;
@@ -21,7 +31,7 @@ $(document).ready(function () {
                     `
                     <br><br><br>
                     <p>Sally: Hey there! Can you add the file
-                            a2.txt to our workspace</p>
+                            code.js to your workspace</p>
                     `
                 );
                 break;

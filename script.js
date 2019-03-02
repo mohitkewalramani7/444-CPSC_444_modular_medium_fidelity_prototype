@@ -1,43 +1,9 @@
-
-var apps = {
-  "Chats": {
-    "type": "folder",
-    "children": {
-      "Slack": {
-        "type": "app"
-      },
-      "Messenger": {
-        "type": "app"
-      }
-    }
-  },
-  "Readme": {
-    "type": "app"
-  },
-  "Photoshop":{
-      "type": "app"
-  },
-  "Files":{
-      "type": "folder",
-      "children":{
-        "A2.A":{
-            "type": "app"
-        },
-        "A2.B":{
-            "type": "app"
-        }
-      }
-  },
-  "Webstorm":{
-      "type": "app"
-  }
-}
-
 function returnOpenApps(apps_object){
     let str = "";
     for (let key in apps_object){
         if (apps_object[key]["type"] === "folder"){
-            str += "<li><div>" + key + "</div><ul>" + returnOpenApps(apps_object[key]["children"]) + "</ul></li>"
+            str += "<li><div>" + key + "</div><ul>" + 
+                returnOpenApps(apps_object[key]["children"]) + "</ul></li>"
         }
         else{
             str += "<li><div><button>" + key + "</button></div></li>";
@@ -89,6 +55,7 @@ function move(item){
 
 function loginButtonClick(){
     window.location.replace("project_list.html");
+    localStorage.setItem('inProgressCode', codeToComment);
 }
 
 function navigateToAllApps(){
@@ -101,6 +68,12 @@ function logOut(){
 
 function navigateToProjectPage(){
     window.location.replace("project_main.html")
+}
+
+function saveData(){
+    let codeInBox = document.getElementById('codeToCommentBox').value;
+    localStorage.setItem('inProgressCode', codeInBox);
+    alert("File Saved");
 }
 
 function openPopup(id){
