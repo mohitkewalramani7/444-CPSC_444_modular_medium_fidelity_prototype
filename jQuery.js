@@ -1,7 +1,8 @@
 $(document).ready(function () {
-    $("#menu").append(returnOpenApps(apps));
+    var list_of_apps = JSON.parse(localStorage.getItem('list_of_apps'));
+    $("#menu").append(returnOpenApps(list_of_apps));
     $("#menu").append(returnAddFileOrFolderButton());
-    $("#allApps").append(allApps(apps, true));
+    $("#allApps").append(allApps(list_of_apps, true));
     $("#menu").menu();
 
     $("ul button").click(function(){
@@ -15,18 +16,11 @@ $(document).ready(function () {
                     "</textarea>"
                 );
                 break;
-            case "code.js":
-                $(".gridMain div").append(
-                    "<br><br><button onClick='saveData()'>Save</button>" +
-                    "<br><textarea id='codeJSBox' rows='60'>" +
-                    localStorage.getItem('codeJSFile') +
-                    "</textarea>"
-                )
             case "Slack":
                 $(".gridMain div").append(
                     `
                     <br><br>
-                    <p>John: Hey there! Can you add the file called 
+                    <p>John: Hey there! Can you add the file called
                         'demo.docx' to your workspace and keep it open.
                         It'll come in handy.
                         Ensure to add it to the Submission folder </p>

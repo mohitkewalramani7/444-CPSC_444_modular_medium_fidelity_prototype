@@ -2,7 +2,7 @@
 
 <head>
     <title>MACCOLAB - MODULAR</title>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="stylesheet.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -23,34 +23,32 @@
       </div>
     </div>
 
+    <div id="move" class="popup">
+      <div id="move_content" class="popup-content">
+      </div>
+    </div>
     <div id="addFolder" class="popup">
-      <div class="popup-content">
-        <h2>Add Folder</h2>
-        Name: <input type="text" name="" value="">
-        Parent Directory: <select class="" name=""><option value="">list of folders</option></select>
-        <br><br><br>
-        <button type="button" onclick="closePopup('addFolder')">Cancel</button>
-        <button type="button" onclick="closePopup('addFolder')" style="float:right">Add</button>
+      <div id="addFolder_content" class="popup-content">
       </div>
     </div>
     <div id="addFile" class="popup">
       <div class="popup-content">
         <h2>Add File</h2>
-        Link: <input type="text" name="" value="">
+        Link: <input type="text" id="addFile_link" value="">
         <br><br>
-        Browse: <input type="file" id="" name="">
+        Browse: <input type="file" id="addFile_name" name="">
         <br><br><br>
         <button type="button" onclick="closePopup('addFile')">Cancel</button>
-        <button type="button" onclick="closePopup('addFile')" style="float:right">Add</button>
+        <button type="button" onclick="save('addFile')" style="float:right">Add</button>
       </div>
     </div>
     <div id="addApp" class="popup">
       <div class="popup-content">
         <h2>Add Application</h2>
-        Browse: <input type="file" id="" name="">
+        Browse: <input type="file" id="addApp_name" name="">
         <br><br><br>
         <button type="button" onclick="closePopup('addApp')">Cancel</button>
-        <button type="button" onclick="closePopup('addApp')" style="float:right">Add</button>
+        <button type="button" onclick="save('addApp')" style="float:right">Add</button>
       </div>
     </div>
 </body>
