@@ -56,6 +56,7 @@ function move(item){
 function loginButtonClick(){
     window.location.replace("project_list.html");
     localStorage.setItem('inProgressCode', codeToComment);
+    localStorage.setItem('codeJSFile', selectionSortAlgorithm);
 }
 
 function navigateToAllApps(){
