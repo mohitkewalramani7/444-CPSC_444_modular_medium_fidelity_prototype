@@ -2,6 +2,9 @@ var apps = {
     "mHall.cpp":{
         "type": "app"
     },
+    "code.js":{
+      "type": "app"
+    },
     "Chats": {
       "type": "folder",
       "children": {
