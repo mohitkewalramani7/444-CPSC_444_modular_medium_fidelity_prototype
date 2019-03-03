@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  console.log(apps)
     $("#menu").append(returnOpenApps(apps));
     $("#menu").append(returnAddFileOrFolderButton());
     $("#allApps").append(allApps(apps, true));
@@ -19,7 +20,7 @@ $(document).ready(function () {
                 $(".gridMain div").append(
                     `
                     <br><br>
-                    <p>John: Hey there! Can you add the file called 
+                    <p>John: Hey there! Can you add the file called
                         'demo.docx' to your workspace and keep it open.
                         It'll come in handy.
                         Ensure to add it to the Submission folder </p>
