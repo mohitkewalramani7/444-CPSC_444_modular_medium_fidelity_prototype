@@ -79,7 +79,7 @@ function saveData(){
 }
 
 function move(item){
-  str = `<h2>Move${item}</h2>Parent Directory: <select id="move_dir"><option value="">No folder</option>`
+  str = `<h2>Move ${item} to</h2><select id="move_dir"><option value="">No folder</option>`
   let folderNames = getAllFolderNames([], apps);
   for (var i = 0; i < folderNames.length; i++) {
     str += `<option value="${folderNames[i]}">${folderNames[i]}</option>`
@@ -91,8 +91,37 @@ function move(item){
   openPopup("move");
 }
 
-function saveMove() {
+function saveMove(item) {
+  let dir = document.getElementById("move_dir").value
+  itemObj = getAndDeleteItem(item,apps)
+  if(dir){
+    apps[dir].children[item] = itemObj
+  } else {
+    apps[item] = itemObj
+  }
+  document.getElementById("move_dir").value = ""
+  document.getElementById("allApps").innerHTML = allApps(apps, true);
+  localStorage.setItem('list_of_apps', JSON.stringify(apps));
+  closePopup("move");
+}
 
+function getAndDeleteItem(item, parent){
+  var itemObj;
+  if(parent[item]){
+    itemObj = parent[item]
+    delete parent[item]
+    console.log(apps)
+  } else {
+    for(let k in parent){
+       if(parent[k].type == "folder"){
+        if(parent[k].children){
+          temp = getAndDeleteItem(item, parent[k].children);
+          if(temp) itemObj = temp
+        }
+      }
+    }
+  }
+  return itemObj;
 }
 
 function getAllFolderNames(folderNames, parent){
@@ -111,7 +140,7 @@ function openPopup(id){
   var popup = document.getElementById(id);
   popup.style.display = "block";
   if(id=="addFolder"){
-    str = ` Name: <input type="text" id="addFolder_name" value="">
+    str = ` <h2>Add Folder</h2> Name: <input type="text" id="addFolder_name" value="">
             Parent Directory: <select id="addFolder_dir"><option value="">No folder</option>`
     let folderNames = getAllFolderNames([], apps);
     for (var i = 0; i < folderNames.length; i++) {
