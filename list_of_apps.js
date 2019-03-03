@@ -1,39 +1,48 @@
 var apps = {
-    "mHall.cpp":{
-        "type": "app"
-    },
-    "code.js":{
-      "type": "app"
-    },
-    "Chats": {
-      "type": "folder",
-      "children": {
-        "Slack": {
-          "type": "app",
-        },
-        "Messenger": {
+  "Folder 1":{
+    "type": "folder",
+    "children":{
+      "File 2":{
           "type": "app"
-        }
+      },
+      "File 3":{
+          "type": "app"
       }
-    },
-    "Readme": {
-      "type": "app"
-    },
-    "Photoshop":{
-        "type": "app"
-    },
-    "Files":{
-        "type": "folder",
-        "children":{
-          "A2.A":{
-              "type": "app"
-          },
-          "A2.B":{
-              "type": "app"
-          }
-        }
-    },
-    "Webstorm":{
-        "type": "app"
     }
+  },
+  "Folder 2":{
+    "type": "folder",
+  },
+  "Folder Submission":{
+    "type":"folder"
+  },
+  "File 1":{
+    "type": "app"
+  },
+  "mHall.cpp":{
+    "type": "app"
+  },
+  "code.js":{
+    "type": "app"
+  },
+  "Chats": {
+    "type": "folder",
+    "children": {
+      "Slack": {
+        "type": "app",
+      },
+      "Messenger": {
+        "type": "app"
+      }
+    }
+  },
+  "Readme": {
+    "type": "app"
+  },
+  "Photoshop":{
+      "type": "app"
+  },
+  "Webstorm":{
+      "type": "app"
+  }
 }
