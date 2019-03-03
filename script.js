@@ -57,6 +57,7 @@ function loginButtonClick(){
     window.location.replace("project_list.html");
     localStorage.setItem('inProgressCode', codeToComment);
     localStorage.setItem('codeJSFile', selectionSortAlgorithm);
+    localStorage.setItem('list_of_apps', JSON.stringify(apps));
 }
 
 function navigateToAllApps(){
@@ -91,7 +92,7 @@ function move(item){
 }
 
 function saveMove() {
-  
+
 }
 
 function getAllFolderNames(folderNames, parent){
@@ -160,4 +161,5 @@ function save(id){
   }
   closePopup(id);
   document.getElementById("allApps").innerHTML = allApps(apps, true);
+  localStorage.setItem('list_of_apps', JSON.stringify(apps));
 }

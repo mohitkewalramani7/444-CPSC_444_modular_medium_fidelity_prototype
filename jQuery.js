@@ -1,8 +1,8 @@
 $(document).ready(function () {
-  console.log(apps)
-    $("#menu").append(returnOpenApps(apps));
+    var list_of_apps = JSON.parse(localStorage.getItem('list_of_apps'));
+    $("#menu").append(returnOpenApps(list_of_apps));
     $("#menu").append(returnAddFileOrFolderButton());
-    $("#allApps").append(allApps(apps, true));
+    $("#allApps").append(allApps(list_of_apps, true));
     $("#menu").menu();
 
     $("ul button").click(function(){
@@ -16,13 +16,6 @@ $(document).ready(function () {
                     "</textarea>"
                 );
                 break;
-            case "code.js":
-                $(".gridMain div").append(
-                    "<br><br><button onClick='saveData()'>Save</button>" +
-                    "<br><textarea id='codeJSBox' rows='60'>" +
-                    localStorage.getItem('codeJSFile') +
-                    "</textarea>"
-                )
             case "Slack":
                 $(".gridMain div").append(
                     `
