@@ -6,10 +6,10 @@ $(document).ready(function () {
     $("#menu").menu();
 
     $("ul button").click(function(){
-        $(".gridMain div").html($(this).text());
+        $(".viewing_container div").html($(this).text());
         switch($(this).text().trim()){
             case "mHall.cpp":
-                $(".gridMain div").append(
+                $(".viewing_container div").append(
                     "<br><br><button onClick='saveData()'>Save</button>" +
                     "<br><textarea id='codeToCommentBox' rows='60'>" +
                     localStorage.getItem('inProgressCode') +
@@ -17,7 +17,7 @@ $(document).ready(function () {
                 );
                 break;
             case "code.js":
-                $(".gridMain div").append(
+                $(".viewing_container div").append(
                     "<br><br><button onClick='saveData()'>Save</button>" +
                     "<br><textarea id='codeJSBox' rows='60'>" +
                     localStorage.getItem('codeJSFile') +
@@ -25,7 +25,7 @@ $(document).ready(function () {
                 );
                 break;
             case "Slack":
-                $(".gridMain div").append(
+                $(".viewing_container div").append(
                     `
                     <br><br>
                     <p>John: Hey there! Can you add the file called
@@ -36,7 +36,7 @@ $(document).ready(function () {
                 );
                 break;
             case "Messenger":
-                $(".gridMain div").append(
+                $(".viewing_container div").append(
                     `
                     <br><br><br>
                     <p>Sally: Hey there! Can you add the file
@@ -45,7 +45,7 @@ $(document).ready(function () {
                 );
                 break;
             case "Readme":
-                $(".gridMain div").append(
+                $(".viewing_container div").append(
                     `
                     <br>
                     <p>Your mission, should you choose to accept it, is to
@@ -54,7 +54,7 @@ $(document).ready(function () {
                 );
                 break;
             case "Photoshop":
-                $(".gridMain div").append(
+                $(".viewing_container div").append(
                     `
                     <br>
                     <p>All the photos you edit!</p>
@@ -62,7 +62,7 @@ $(document).ready(function () {
                 );
                 break;
             case "A2.A":
-                $(".gridMain div").append(
+                $(".viewing_container div").append(
                     `
                     <br>
                     <h3>A2.A</h3>
@@ -70,7 +70,7 @@ $(document).ready(function () {
                 );
                 break;
             case "A2.B":
-                $(".gridMain div").append(
+                $(".viewing_container div").append(
                     `
                     <br>
                     <h3>A2.B</h3>
@@ -78,7 +78,7 @@ $(document).ready(function () {
                 );
                 break;
             case "Webstorm":
-                $(".gridMain div").append(
+                $(".viewing_container div").append(
                     `
                     <br>
                     <h3>Webstorm</h3>

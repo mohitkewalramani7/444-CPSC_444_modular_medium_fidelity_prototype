@@ -16,21 +16,18 @@
     </head>
     <body>
         <h1>CPSC 444</h1>
-        <div class="grid-container">
-
-            <div class="gridHeader">
-                <div class="main-bar">
-                    <button type="button" onClick="navigateToAllApps()">All Applications</button>
-                    <button type="button" onClick="logOut()">Log Out</button>
-                </div>
-            </div>
-
-            <div class="gridMenu">
+        <div style="width:100%; height:38px">
+            <button type="button" onClick="logOut()" style="float:right; margin-left:20px">Log Out</button>
+            <button type="button" onClick="navigateToAllApps()" style="float:right">All Applications</button>
+            <div style="width:100%; height:10px; float:right"></div>
+        </div>
+        <div>
+            <div style="float:left">
                 <ul id="menu">
                 </ul>
             </div>
 
-            <div class="gridMain">
+            <div class="viewing_container" style="float:right">
                 <div>
                     Main viewing container
                 </div>

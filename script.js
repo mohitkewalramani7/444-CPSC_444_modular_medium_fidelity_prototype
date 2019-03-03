@@ -6,7 +6,7 @@ function returnOpenApps(apps_object){
                 returnOpenApps(apps_object[key]["children"]) + "</ul></li>"
         }
         else{
-            str += "<li><div><button>" + key + "</button></div></li>";
+            str += "<li><div><button class='menu_button'>" + key + "</button></div></li>";
         }
     }
     return str;
@@ -15,7 +15,7 @@ function returnOpenApps(apps_object){
 function returnAddFileOrFolderButton(){
     return `
     <li>
-        <div>Add App/File --></div>
+        <div>Add App/File</div>
         <ul>
             <li>
                 <div>App</div>
