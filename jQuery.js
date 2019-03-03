@@ -16,6 +16,14 @@ $(document).ready(function () {
                     "</textarea>"
                 );
                 break;
+            case "code.js":
+                $(".gridMain div").append(
+                    "<br><br><button onClick='saveData()'>Save</button>" +
+                    "<br><textarea id='codeJSBox' rows='60'>" +
+                    localStorage.getItem('codeJSFile') +
+                    "</textarea>"
+                );
+                break;
             case "Slack":
                 $(".gridMain div").append(
                     `
