@@ -2,30 +2,20 @@ function returnOpenApps(apps_object){
     let str = "";
     for (let key in apps_object){
         if (apps_object[key]["type"] === "folder"){
-            str += "<li><div>" + key + "</div><ul>" +
+            str += "<li><div><img class='icon' src='app_images\\folder_icon.svg'>" + key + "</div><ul>" +
                 returnOpenApps(apps_object[key]["children"]) + "</ul></li>"
         }
         else{
-            str += "<li><div><button class='menu_button'>" + key + "</button></div></li>";
+            str += "<li><div><button class='menu_button'>"
+            if(apps_object[key].icon){
+              str += `<img class='icon' src='${apps_object[key].icon}'>`
+            } else {
+              str += "<img class='icon' src='app_images\\doc_icon.svg'>"
+            }
+            str += key + "</button></div></li>";
         }
     }
     return str;
-}
-
-function returnAddFileOrFolderButton(){
-    return `
-    <li>
-        <div>Add App/File</div>
-        <ul>
-            <li>
-                <div>App</div>
-            </li>
-            <li>
-                <div>File</div>
-            </li>
-        </ul>
-    </li>
-        `
 }
 
 function allApps(apps_object, main_level){
@@ -37,15 +27,20 @@ function allApps(apps_object, main_level){
             if(!main_level){
               str+="style='width:80%'"
             }
-            str += ">"+key + "<button type='button' style='float:right' onClick='move(\""+key+"\")'>move</button>" +
+            str += "><img class='icon' src='app_images\\folder_icon.svg'>"+key + "<button type='button' style='float:right' onClick='move(\""+key+"\")'>move</button>" +
                 "<hr><div>" + allApps(apps_object[key]["children"], false) +
                 "</div></div>"
         }
         else{
             let c = "app";
             if(main_level) c = "folder";
-            str += "<div class='"+c+"'>" + key
-            str += "<button type='button' style='float:right' onClick='move(\""+key+"\")'>move</button></div>"
+            str += "<div class='"+c+"'>"
+            if(apps_object[key].icon){
+              str += `<img class='icon' src='${apps_object[key].icon}'>`
+            } else {
+              str += "<img class='icon' src='app_images\\doc_icon.svg'>"
+            }
+            str += key +"<button type='button' style='float:right' onClick='move(\""+key+"\")'>move</button></div>"
         }
         if(counter % 3 == 2) str +="<div style='height:1px;clear:both'></div>"
         counter ++;
