@@ -75,7 +75,8 @@ function saveData(){
 
 function move(item){
   str = `<h2>Move ${item} to</h2><select id="move_dir"><option value="">No folder</option>`
-  let folderNames = getAllFolderNames([], apps);
+  var list_of_apps = JSON.parse(localStorage.getItem('list_of_apps'));
+  let folderNames = getAllFolderNames([], list_of_apps);
   for (var i = 0; i < folderNames.length; i++) {
     str += `<option value="${folderNames[i]}">${folderNames[i]}</option>`
   }
@@ -87,16 +88,17 @@ function move(item){
 }
 
 function saveMove(item) {
+  var list_of_apps = JSON.parse(localStorage.getItem('list_of_apps'));
   let dir = document.getElementById("move_dir").value
-  itemObj = getAndDeleteItem(item,apps)
+  itemObj = getAndDeleteItem(item,list_of_apps)
   if(dir){
-    apps[dir].children[item] = itemObj
+    list_of_apps[dir].children[item] = itemObj
   } else {
-    apps[item] = itemObj
+    list_of_apps[item] = itemObj
   }
   document.getElementById("move_dir").value = ""
-  document.getElementById("allApps").innerHTML = allApps(apps, true);
-  localStorage.setItem('list_of_apps', JSON.stringify(apps));
+  document.getElementById("allApps").innerHTML = allApps(list_of_apps, true);
+  localStorage.setItem('list_of_apps', JSON.stringify(list_of_apps));
   closePopup("move");
 }
 
@@ -132,12 +134,13 @@ function getAllFolderNames(folderNames, parent){
 }
 
 function openPopup(id){
+  var list_of_apps = JSON.parse(localStorage.getItem('list_of_apps'));
   var popup = document.getElementById(id);
   popup.style.display = "block";
   if(id=="addFolder"){
     str = ` <h2>Add Folder</h2> Name: <input type="text" id="addFolder_name" value="">
             Parent Directory: <select id="addFolder_dir"><option value="">No folder</option>`
-    let folderNames = getAllFolderNames([], apps);
+    let folderNames = getAllFolderNames([], list_of_apps);
     for (var i = 0; i < folderNames.length; i++) {
       str += `<option value="${folderNames[i]}">${folderNames[i]}</option>`
     }
@@ -154,6 +157,7 @@ function closePopup(id){
 }
 
 function save(id){
+  var list_of_apps = JSON.parse(localStorage.getItem('list_of_apps'));
   var popup = document.getElementById(id);
   switch (id) {
     case "addFolder":
@@ -161,9 +165,9 @@ function save(id){
       let dir = document.getElementById("addFolder_dir").value
       if(name){
         if(dir){
-          apps[dir].children[name] = {"type":"folder", children:{}}
+          list_of_apps[dir].children[name] = {"type":"folder", children:{}}
         } else {
-          apps[name] = {"type":"folder", children:{}}
+          list_of_apps[name] = {"type":"folder", children:{}}
         }
       }
       document.getElementById("addFolder_name").value = ""
@@ -172,18 +176,18 @@ function save(id){
     case "addFile":
       let filelink = document.getElementById("addFile_link").value
       let filename = document.getElementById("addFile_name").value.split("C:\\fakepath\\")[1]
-      if(filelink) apps[filelink] = {"type":"app"}
-      if(filename) apps[filename] = {"type":"app"}
+      if(filelink) list_of_apps[filelink] = {"type":"app"}
+      if(filename) list_of_apps[filename] = {"type":"app"}
       document.getElementById("addFile_link").value = ""
       document.getElementById("addFile_name").value = ""
       break;
     case "addApp":
       let appname = document.getElementById("addApp_name").value.split("C:\\fakepath\\")[1]
-      if(appname) apps[appname] = {"type":"app"}
+      if(appname) list_of_apps[appname] = {"type":"app"}
       document.getElementById("addApp_name").value = ""
       break;
   }
   closePopup(id);
-  document.getElementById("allApps").innerHTML = allApps(apps, true);
-  localStorage.setItem('list_of_apps', JSON.stringify(apps));
+  document.getElementById("allApps").innerHTML = allApps(list_of_apps, true);
+  localStorage.setItem('list_of_apps', JSON.stringify(list_of_apps));
 }

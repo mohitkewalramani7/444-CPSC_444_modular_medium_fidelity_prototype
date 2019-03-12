@@ -1,5 +1,6 @@
-$(document).ready(function () {
+function onLoad() {
     var list_of_apps = JSON.parse(localStorage.getItem('list_of_apps'));
+    console.log(list_of_apps);
     $("#menu").append(returnOpenApps(list_of_apps));
     $("#allApps").append(allApps(list_of_apps, true));
     $("#menu").menu();
@@ -48,4 +49,4 @@ $(document).ready(function () {
                 }
         }
     });
-});
+};

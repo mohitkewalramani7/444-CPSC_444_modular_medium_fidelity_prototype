@@ -51,7 +51,7 @@ li{
     height: 250px;
     margin-top: 5%;
     margin-left: 20%;
-    margin-right: 20%
+    float: left;
 }
 .app-selection-button{
     width: 100%;
@@ -100,10 +100,12 @@ textarea{
   background-color: rgba(0,0,0,0);
   border: 0;
   text-align: left;
+  overflow: hidden;
 }
 #menu {
   position:fixed;
   border: 0;
+  max-width: 210px;
 }
 .ui-menu-item-wrapper{
   min-width: 7em;
@@ -121,6 +123,10 @@ textarea{
 
 .saveDataBtn {
   float: right;
+  background-color: lawngreen;
+  border-radius: 50px;
+  font-size: xx-large;
+  margin-bottom: 7px;
 }
 .icon {
   height: 25px;

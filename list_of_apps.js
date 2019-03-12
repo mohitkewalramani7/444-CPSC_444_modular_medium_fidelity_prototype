@@ -23,9 +23,9 @@ var apps = {
   "mHall.cpp":{
     "type": "app"
   },
-  "code.js":{
-    "type": "app"
-  },
+  // "code.js":{
+  //   "type": "app"
+  // },
   "Chats": {
     "type": "folder",
     "children": {
@@ -70,6 +70,10 @@ var app_imgs = {
   },
   "code.js":{
     "img": "app_images/doc_header.png",
+  },
+  "demo.docx":{
+    "img": "app_images/doc_header.png",
+    "content": "You did it!!!"
   },
   "Slack": {
     "img": "app_images/slack.png",
