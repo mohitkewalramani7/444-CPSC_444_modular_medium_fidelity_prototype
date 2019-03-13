@@ -122,7 +122,6 @@ textarea{
 }
 
 .saveDataBtn {
-  float: right;
   background-color: lawngreen;
   border-radius: 50px;
   font-size: xx-large;
